@@ -1,11 +1,14 @@
 require 'sinatra'
+require "sinatra/activerecord"
+
+set :database, "sqlite3:///coffee_shop_list.db"
 
 get "/" do
 	erb :"index"
 end	
 
 get "/error" do
-  erb :"error"
+  redirect "/error"
 end
 
 get "/add-list" do
