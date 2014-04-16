@@ -1,0 +1,6 @@
+<%= @to_visit.title %>
+
+<form action="/to_visit/<%= @to_visit.id %>" method="post">
+<!-- 	<input type="hidden" name="_method" value="delete" /> -->
+	<input type="submit" value="Delete"/>
+</form>
