@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
   </head>
 
 <h2>Favorite Coffee Shops to Visit</h2>
 <ul>
 	<% @shops_to_visit.each do |to_visit| %>
-	<li><a href="/coffee_list/<%= to_visit.id %>"><%= to_visit.title %></a></li>
+	<li><%= to_visit.title %><a href="/coffee_list/<%= to_visit.id %>" class="btn btn-large">Delete</a></li>
 	<% end %>
 </ul>
 
@@ -19,5 +15,3 @@
     <input type="submit" a class="btn btn-primary btn-lg btn-block" ></a>
     </form>
 </div>
-
-<a href="/delete_list/">Click to delete</a>

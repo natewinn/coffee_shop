@@ -31,13 +31,9 @@ post "/coffee_list" do
 	end
 end	
 
-delete "/delete_list/:id" do
-	@to_visit = CoffeeShop.find(params[:id])
-	if to_visit.delete
-		redirect "/coffee_list"
-	else
-		redirect "/error"
-	end
+delete "/coffee_list/:id" do
+  @to_visit = CoffeeShop.find(params[:id]).destroy
+  redirect "/coffee_list"
 end
 
 class CoffeeShop < ActiveRecord::Base
