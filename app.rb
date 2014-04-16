@@ -12,13 +12,13 @@ get "/error" do
 end
 
 get "/add-list" do
-	@shops_to_visit = CoffeeShops.shops_to_visit
-	erb :"list"
+	@shops_to_visit = CoffeeShop.shops_to_visit
+	erb :"add-list"
 end
 
 post "/add-list" do
 	text = params[:add_coffee_shop]
-	if CoffeeShops.add_to_favorite_list(text)
+	if CoffeeShop.add_to_favorite_list(text)
 		redirect "/list"
 	else
 		redirect "/error"
@@ -27,16 +27,16 @@ end
 
 post "/delete-list" do
 	text = params[:delete_coffee_shop]
-	if CoffeeShops.delete_from_favorite_list(text)
+	if CoffeeShop.delete_from_favorite_list(text)
 		redirect "/list"
 	else
 		redirect "/error"
 	end
 end
 
-class CoffeeShops
-	@@shops_to_visit = ["Inteligensia", "Stumptown"]
-	@@shops_not_to_visit = ["McDonald's", "Waffle House"]
+class CoffeeShop
+	@@shops_to_visit = ["Starbucks", "Octane"]
+	@@shops_not_to_visit = ["McDonald's", "Dunkin Donuts"]
 
 	def initialize
 	end
